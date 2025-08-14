@@ -1,0 +1,15 @@
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/bin/Debug/net9.0/DCIT_financeManagementSystem
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/bin/Debug/net9.0/DCIT_financeManagementSystem.deps.json
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/bin/Debug/net9.0/DCIT_financeManagementSystem.runtimeconfig.json
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/bin/Debug/net9.0/DCIT_financeManagementSystem.dll
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/bin/Debug/net9.0/DCIT_financeManagementSystem.pdb
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/obj/Debug/net9.0/DCIT_financeManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/obj/Debug/net9.0/DCIT_financeManagementSystem.AssemblyInfoInputs.cache
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/obj/Debug/net9.0/DCIT_financeManagementSystem.AssemblyInfo.cs
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/obj/Debug/net9.0/DCIT_financeManagementSystem.csproj.CoreCompileInputs.cache
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/obj/Debug/net9.0/DCIT_financeManagementSystem.sourcelink.json
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/obj/Debug/net9.0/DCIT_financeManagementSystem.dll
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/obj/Debug/net9.0/refint/DCIT_financeManagementSystem.dll
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/obj/Debug/net9.0/DCIT_financeManagementSystem.pdb
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/obj/Debug/net9.0/DCIT_financeManagementSystem.genruntimeconfig.cache
+/Users/amfafa/Desktop/dcit318-assignment3/dcit318-assignment3-11305467/DCIT_financeManagementSystem/obj/Debug/net9.0/ref/DCIT_financeManagementSystem.dll
