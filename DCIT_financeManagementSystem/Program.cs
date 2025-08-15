@@ -350,9 +350,6 @@ namespace InventoryItem
         public override string ToString() => $"{Id} | {Name} x{Quantity} | Exp: {ExpiryDate:yyyy-MM-dd}";
     }
 
-    // ─────────────────────────────────────────────────────────────────────────────
-    // (e) Custom exceptions
-    // ─────────────────────────────────────────────────────────────────────────────
     public class DuplicateItemException : Exception
     {
         public DuplicateItemException(string message) : base(message) { }
@@ -512,6 +509,139 @@ namespace InventoryItem
 
             // Bonus: increase stock safely (happy path)
             manager.IncreaseStock(manager.GroceriesRepo, id: 2, quantity: 5);
+        }
+    }
+
+
+
+}
+
+
+namespace Student
+{
+    public class Student
+    {
+        public int Id;
+        public string FullName;
+        public int Score;
+
+        public string GetGrade()
+        {
+            if (Score >= 80 && Score <= 100) return "A";
+            if (Score >= 70) return "B";
+            if (Score >= 60) return "C";
+            if (Score >= 50) return "D";
+            return "F";
+        }
+
+        public override string ToString()
+            => $"{FullName} (ID: {Id}): Score = {Score}, Grade = {GetGrade()}";
+    }
+
+    public class InvalidScoreFormatException : Exception
+    {
+        public InvalidScoreFormatException(string message) : base(message) { }
+    }
+
+    public class MissingFieldException : Exception
+    {
+        public MissingFieldException(string message) : base(message) { }
+    }
+
+
+    public class StudentResultProcessor
+    {
+
+        public List<Student> ReadStudentsFromFile(string inputFilePath)
+        {
+            var students = new List<Student>();
+
+            using var sr = new StreamReader(inputFilePath);
+            string? line;
+            int lineNo = 0;
+
+            while ((line = sr.ReadLine()) != null)
+            {
+                lineNo++;
+                if (string.IsNullOrWhiteSpace(line))
+                    continue; // skip blank lines
+
+                var parts = line.Split(',');
+                if (parts.Length != 3)
+                    throw new MissingFieldException($"Line {lineNo}: Expected 3 fields (Id, FullName, Score) but got {parts.Length}.");
+
+                string idText = parts[0].Trim();
+                string fullName = parts[1].Trim();
+                string scoreText = parts[2].Trim();
+
+                if (!int.TryParse(idText, out int id))
+                    throw new InvalidScoreFormatException($"Line {lineNo}: Student ID is not a valid integer ('{idText}').");
+
+                if (!int.TryParse(scoreText, out int score))
+                    throw new InvalidScoreFormatException($"Line {lineNo}: Score is not a valid integer ('{scoreText}').");
+
+
+                students.Add(new Student { Id = id, FullName = fullName, Score = score });
+            }
+
+            return students;
+        }
+
+        public void WriteReportToFile(List<Student> students, string outputFilePath)
+        {
+            using var sw = new StreamWriter(outputFilePath);
+            foreach (var s in students)
+            {
+                sw.WriteLine($"{s.FullName} (ID: {s.Id}): Score = {s.Score}, Grade = {s.GetGrade()}");
+            }
+        }
+    }
+
+
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.Write("Enter input file path (.txt): ");
+            var inputPath = Console.ReadLine()?.Trim();
+
+            Console.Write("Enter output file path (.txt): ");
+            var outputPath = Console.ReadLine()?.Trim();
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(inputPath) || string.IsNullOrWhiteSpace(outputPath))
+                {
+                    Console.WriteLine("Input/output paths cannot be empty.");
+                    return;
+                }
+
+                var processor = new StudentResultProcessor();
+
+                // ii. Read
+                var students = processor.ReadStudentsFromFile(inputPath);
+
+                // iii. Write
+                processor.WriteReportToFile(students, outputPath);
+
+                Console.WriteLine("Report written successfully.");
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("Error: Input file not found.");
+            }
+            catch (InvalidScoreFormatException ex)
+            {
+                Console.WriteLine($"Invalid score format: {ex.Message}");
+            }
+            catch (MissingFieldException ex)
+            {
+                Console.WriteLine($"Missing field: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+            }
         }
     }
 
